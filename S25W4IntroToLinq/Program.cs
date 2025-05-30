@@ -27,7 +27,23 @@
             colors.Add("GreEn");
             colors.Add("ReD");
 
+            var startsWithR = from c in colors
+                              let upperCaseStr = c.ToUpper()
+                              where upperCaseStr.StartsWith("R")
+                              orderby upperCaseStr
+                              select upperCaseStr;
 
+            foreach (var i in startsWithR)
+                Console.WriteLine(i);
+
+            Console.WriteLine("\n\n\n");
+
+            colors.Add("RuBy");
+            colors.Add("PiNK");
+
+            // deferred execution
+            foreach (var i in startsWithR)
+                Console.WriteLine(i);
         }
     }
 }
